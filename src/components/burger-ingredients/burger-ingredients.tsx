@@ -5,7 +5,7 @@ import { TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 
 export const BurgerIngredients: FC = () => {
-  /** TODO: взять переменные из стора */
+  /** #TODO: взять переменные из стора */
   const buns = [];
   const mains = [];
   const sauces = [];
