@@ -1,41 +1,46 @@
+import { useEffect, useState } from 'react';
+
 import { ProfileUI } from '@ui-pages';
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { getUserData } from '@slices/userSlice';
+import { useSelector, useDispatch } from '@store';
+import { updateUserDataThunk } from '@slices/userSlice';
+
+import type { FC, SyntheticEvent } from 'react';
 
 export const Profile: FC = () => {
-  /** #TODO: взять переменную из стора */
-  const user = {
-    name: '',
-    email: ''
-  };
+  const userData = useSelector(getUserData);
+  const dispatch = useDispatch();
 
   const [formValue, setFormValue] = useState({
-    name: user.name,
-    email: user.email,
+    name: userData?.name || '',
+    email: userData?.email || '',
     password: ''
   });
 
   useEffect(() => {
     setFormValue((prevState) => ({
       ...prevState,
-      name: user?.name || '',
-      email: user?.email || ''
+      name: userData?.name || '',
+      email: userData?.email || ''
     }));
-  }, [user]);
+  }, [userData]);
 
   const isFormChanged =
-    formValue.name !== user?.name ||
-    formValue.email !== user?.email ||
+    formValue.name !== userData?.name ||
+    formValue.email !== userData?.email ||
     !!formValue.password;
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+
+    dispatch(updateUserDataThunk(formValue));
   };
 
   const handleCancel = (e: SyntheticEvent) => {
     e.preventDefault();
     setFormValue({
-      name: user.name,
-      email: user.email,
+      name: userData?.name || '',
+      email: userData?.email || '',
       password: ''
     });
   };
@@ -56,6 +61,4 @@ export const Profile: FC = () => {
       handleInputChange={handleInputChange}
     />
   );
-
-  return null;
 };
