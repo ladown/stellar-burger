@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import type { FC } from 'react';
-
 import type { TAppHeaderUIProps } from './type';
 
 import styles from './app-header.module.css';

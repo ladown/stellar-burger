@@ -7,9 +7,8 @@ import {
   changeIngredientsBurgerConstructorOrder
 } from '@slices/orderSlice';
 
-import type { BurgerConstructorElementProps } from './type';
 import type { FC } from 'react';
-import type { TConstructorIngredient } from '@utils/types';
+import type { BurgerConstructorElementProps } from './type';
 
 export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
   ({ ingredient, index, totalItems }) => {

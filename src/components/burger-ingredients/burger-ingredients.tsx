@@ -6,7 +6,6 @@ import { useSelector } from '@store';
 import { getIngredientData } from '@slices/ingredientsSlice';
 
 import type { FC } from 'react';
-
 import type { TTabMode } from '@utils-types';
 
 export const BurgerIngredients: FC = () => {

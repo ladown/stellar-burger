@@ -1,8 +1,10 @@
-import { FC, memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import { TModalProps } from './type';
 import { ModalUI } from '@ui';
+
+import type { FC } from 'react';
+import type { TModalProps } from './type';
 
 const modalRoot = document.getElementById('modals');
 

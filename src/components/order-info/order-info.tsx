@@ -7,8 +7,8 @@ import { useSelector, useDispatch } from '@store';
 import { getIngredientData } from '@slices/ingredientsSlice';
 import { getOrdersState, getOrderByNumberThunk } from '@slices/ordersSlice';
 
-import type { TIngredient } from '@utils-types';
 import type { FC } from 'react';
+import type { TIngredient } from '@utils-types';
 
 export const OrderInfo: FC = () => {
   const { number: _orderId } = useParams();

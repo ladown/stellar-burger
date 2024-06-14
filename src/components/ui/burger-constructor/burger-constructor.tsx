@@ -8,7 +8,6 @@ import { Preloader, OrderDetailsUI } from '@ui';
 import { BurgerConstructorElement, Modal } from '@components';
 
 import type { FC } from 'react';
-
 import type { TConstructorIngredient } from '@utils-types';
 import type { BurgerConstructorUIProps } from './type';
 

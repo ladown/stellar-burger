@@ -1,8 +1,13 @@
-import React, { FC, memo } from 'react';
-import styles from './burger-constructor-element.module.css';
-import { ConstructorElement } from '@zlden/react-developer-burger-ui-components';
+import { memo } from 'react';
+import {
+  MoveButton,
+  ConstructorElement
+} from '@zlden/react-developer-burger-ui-components';
+
+import type { FC } from 'react';
 import { BurgerConstructorElementUIProps } from './type';
-import { MoveButton } from '@zlden/react-developer-burger-ui-components';
+
+import styles from './burger-constructor-element.module.css';
 
 export const BurgerConstructorElementUI: FC<BurgerConstructorElementUIProps> =
   memo(
