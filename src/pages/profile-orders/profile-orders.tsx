@@ -1,18 +1,23 @@
 import { useEffect } from 'react';
 
 import { ProfileOrdersUI } from '@ui-pages';
+import { Preloader } from '@ui';
 import { useSelector, useDispatch } from '@store';
-import { getOrders, getOrdersThunk } from '@slices/ordersSlice';
+import { getOrdersState, getOrdersThunk } from '@slices/ordersSlice';
 
 import type { FC } from 'react';
 
 export const ProfileOrders: FC = () => {
-  const orders = useSelector(getOrders);
+  const ordersState = useSelector(getOrdersState);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getOrdersThunk());
   }, [dispatch]);
 
-  return <ProfileOrdersUI orders={orders} />;
+  if (!ordersState.isInit || ordersState.isLoading) {
+    return <Preloader />;
+  }
+
+  return <ProfileOrdersUI orders={ordersState.orders} />;
 };
