@@ -36,6 +36,15 @@ const config: StorybookConfig = {
       }
     }
   },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic'
+        }
+      }
+    }
+  }),
   docs: {
     autodocs: 'tag'
   }
