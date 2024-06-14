@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { BurgerConstructorUI } from '@ui';
 import { useSelector, useDispatch } from '@store';
@@ -21,26 +22,31 @@ export const BurgerConstructor: FC = () => {
   const userData = useSelector(getUserData);
   const dispatch = useDispatch();
   const [isButtonDisabled, setIsButtonDisabled] = useState(
-    !userData || !constructorItems.bun || !constructorItems.ingredients.length
+    !constructorItems.bun || !constructorItems.ingredients.length
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsButtonDisabled(
-      !userData || !constructorItems.bun || !constructorItems.ingredients.length
+      !constructorItems.bun || !constructorItems.ingredients.length
     );
-  }, [userData, constructorItems]);
+  }, [constructorItems]);
 
   const onOrderClick = () => {
     if (constructorItems.bun) {
-      setIsButtonDisabled(true);
+      if (userData) {
+        setIsButtonDisabled(true);
 
-      const orderData = [
-        constructorItems.bun._id,
-        constructorItems.bun._id,
-        ...constructorItems.ingredients.map((ingredient) => ingredient._id)
-      ];
+        const orderData = [
+          constructorItems.bun._id,
+          constructorItems.bun._id,
+          ...constructorItems.ingredients.map((ingredient) => ingredient._id)
+        ];
 
-      dispatch(orderBurgerThunk(orderData));
+        dispatch(orderBurgerThunk(orderData));
+      } else {
+        navigate('/login');
+      }
     }
   };
 
