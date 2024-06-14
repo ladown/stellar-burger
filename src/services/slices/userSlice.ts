@@ -12,12 +12,7 @@ import {
 import { setCookie, deleteCookie } from '@utils/cookie';
 
 import type { TUser } from '@utils-types';
-import type {
-  TRegisterData,
-  TLoginData,
-  TForgotPasswordApiProps,
-  TResetPasswordApiProps
-} from '@api';
+import type { TRegisterData, TLoginData } from '@api';
 
 export const registerUserThunk = createAsyncThunk(
   'user/registerUser',
@@ -43,29 +38,26 @@ export const loginUserThunk = createAsyncThunk(
   }
 );
 
-export const getUserThunk = createAsyncThunk(
-  'user/getUser',
-  async () => await getUserApi()
-);
+export const getUserThunk = createAsyncThunk('user/getUser', getUserApi);
 
 export const updateUserDataThunk = createAsyncThunk(
   'user/updateUserData',
-  async (data: Partial<TRegisterData>) => await updateUserApi(data)
+  updateUserApi
 );
 
 export const logoutUserThunk = createAsyncThunk('user/logoutUser', async () => {
-  const response = await logoutApi();
+  await logoutApi();
   deleteCookie('accessToken');
 });
 
 export const forgotPasswordUserThunk = createAsyncThunk(
   'user/forgotPasswordUser',
-  async (data: TForgotPasswordApiProps) => await forgotPasswordApi(data)
+  forgotPasswordApi
 );
 
 export const resetPasswordUserThunk = createAsyncThunk(
   'user/resetPasswordUser',
-  async (data: TResetPasswordApiProps) => await resetPasswordApi(data)
+  resetPasswordApi
 );
 
 export type TUserSliceInitialState = {
