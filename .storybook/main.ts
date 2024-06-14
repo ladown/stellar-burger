@@ -22,7 +22,8 @@ const config: StorybookConfig = {
           '@api': path.resolve(__dirname, '../src/utils/burger-api.ts'),
           '@services': path.resolve(__dirname, '../src/services/'),
           '@slices': path.resolve(__dirname, '../src/services/slices'),
-          '@store': path.resolve(__dirname, '../src/services/store.ts')
+          '@store': path.resolve(__dirname, '../src/services/store.ts'),
+          '@hooks': path.resolve(__dirname, '../src/hooks')
         })
       : null;
     return config;

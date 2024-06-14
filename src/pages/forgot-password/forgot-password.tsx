@@ -4,11 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { ForgotPasswordUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
 import { forgotPasswordUserThunk, getUserError } from '@slices/userSlice';
+import { useForm } from '@hooks/useForm';
 
 import type { FC, SyntheticEvent } from 'react';
 
 export const ForgotPassword: FC = () => {
-  const [email, setEmail] = useState('');
+  const { values, handleChange } = useForm({
+    email: ''
+  });
   const userError = useSelector(getUserError);
   const dispatch = useDispatch();
 
@@ -17,7 +20,7 @@ export const ForgotPassword: FC = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    dispatch(forgotPasswordUserThunk({ email })).then(() => {
+    dispatch(forgotPasswordUserThunk(values)).then(() => {
       localStorage.setItem('resetPassword', 'true');
       navigate('/reset-password', { replace: true });
     });
@@ -26,8 +29,8 @@ export const ForgotPassword: FC = () => {
   return (
     <ForgotPasswordUI
       errorText={userError}
-      email={email}
-      setEmail={setEmail}
+      email={values.email}
+      setEmail={handleChange}
       handleSubmit={handleSubmit}
     />
   );
