@@ -1,12 +1,14 @@
-import { FC } from 'react';
 import {
   Input,
   Button,
   PasswordInput
 } from '@zlden/react-developer-burger-ui-components';
-import styles from '../common.module.css';
 import { Link } from 'react-router-dom';
-import { ResetPasswordUIProps } from './type';
+
+import type { FC } from 'react';
+import type { ResetPasswordUIProps } from './type';
+
+import styles from '../common.module.css';
 
 export const ResetPasswordUI: FC<ResetPasswordUIProps> = ({
   errorText,
@@ -26,7 +28,7 @@ export const ResetPasswordUI: FC<ResetPasswordUIProps> = ({
       >
         <div className='pb-6'>
           <PasswordInput
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={setPassword}
             value={password}
             name='password'
           />

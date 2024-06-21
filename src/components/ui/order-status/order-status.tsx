@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { OrderStatusUIProps } from './type';
+import type { FC } from 'react';
+import type { OrderStatusUIProps } from './type';
 
 export const OrderStatusUI: FC<OrderStatusUIProps> = ({ textStyle, text }) => (
   <span

@@ -1,14 +1,15 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './burger-ingredient.module.css';
-
 import {
   Counter,
   CurrencyIcon,
   AddButton
 } from '@zlden/react-developer-burger-ui-components';
 
-import { TBurgerIngredientUIProps } from './type';
+import type { FC } from 'react';
+import type { TBurgerIngredientUIProps } from './type';
+
+import styles from './burger-ingredient.module.css';
 
 export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
   ({ ingredient, count, handleAdd, locationState }) => {

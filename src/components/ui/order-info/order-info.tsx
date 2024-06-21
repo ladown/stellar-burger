@@ -1,13 +1,15 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import {
   CurrencyIcon,
   FormattedDate
 } from '@zlden/react-developer-burger-ui-components';
 
-import styles from './order-info.module.css';
-
-import { OrderInfoUIProps } from './type';
 import { OrderStatus } from '@components';
+
+import type { FC } from 'react';
+import type { OrderInfoUIProps } from './type';
+
+import styles from './order-info.module.css';
 
 export const OrderInfoUI: FC<OrderInfoUIProps> = memo(({ orderInfo }) => (
   <div className={styles.wrap}>

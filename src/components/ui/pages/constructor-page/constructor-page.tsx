@@ -1,10 +1,10 @@
-import { FC } from 'react';
-
-import styles from './constructor-page.module.css';
-
-import { ConstructorPageUIProps } from './type';
 import { Preloader } from '@ui';
 import { BurgerIngredients, BurgerConstructor } from '@components';
+
+import type { FC } from 'react';
+import type { ConstructorPageUIProps } from './type';
+
+import styles from './constructor-page.module.css';
 
 export const ConstructorPageUI: FC<ConstructorPageUIProps> = ({
   isIngredientsLoading

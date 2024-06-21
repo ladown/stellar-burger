@@ -1,7 +1,9 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 
-import { OrdersListProps } from './type';
 import { OrdersListUI } from '@ui';
+
+import type { FC } from 'react';
+import type { OrdersListProps } from './type';
 
 export const OrdersList: FC<OrdersListProps> = memo(({ orders }) => {
   const orderByDate = [...orders].sort(

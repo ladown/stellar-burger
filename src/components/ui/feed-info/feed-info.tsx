@@ -1,8 +1,9 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
+
+import type { FC } from 'react';
+import type { FeedInfoUIProps, HalfColumnProps, TColumnProps } from './type';
 
 import styles from './feed-info.module.css';
-
-import { FeedInfoUIProps, HalfColumnProps, TColumnProps } from './type';
 
 export const FeedInfoUI: FC<FeedInfoUIProps> = memo(
   ({ feed, readyOrders, pendingOrders }) => {
