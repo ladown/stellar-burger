@@ -1,20 +1,19 @@
-// ***********************************************************
-// This example support/e2e.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+import { setCookie } from '../../src/utils/cookie';
 
-// Import commands.js using ES2015 syntax:
-import './commands';
+beforeEach(() => {
+  cy.visit('http://localhost:4000');
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+  setCookie('accessToken', Cypress.env('ACCESS_TOKEN'));
+
+  cy.intercept('GET', `${Cypress.env('BURGER_API_URL')}/auth/user`, {
+    fixture: 'user.json'
+  });
+
+  cy.intercept('GET', `${Cypress.env('BURGER_API_URL')}/ingredients`, {
+    fixture: 'ingredients.json'
+  });
+
+  cy.intercept('POST', `${Cypress.env('BURGER_API_URL')}/orders`, {
+    fixture: 'orders.json'
+  });
+});
