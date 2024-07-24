@@ -6,15 +6,10 @@ it('Проверка создания заказа', () => {
     ingredient.get(0).querySelector('button')?.click();
   });
 
-  cy.get('[data-cy="burger-constructor-element"]').each((burgerConstructor) => {
-    expect(
-      ingredients.data.find(
-        (ingredientItem) =>
-          ingredientItem.name ===
-          burgerConstructor.find('.constructor-element__text').text()
-      )
-    ).to.exist;
-  });
+  cy.get('[data-cy="burger-constructor-element"]').should(
+    'have.length',
+    ingredients.data.length - 1
+  );
 
   cy.get('[data-cy="burger-constructor"]')
     .contains('[type="button"]', 'Оформить заказ')
