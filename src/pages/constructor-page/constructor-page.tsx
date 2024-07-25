@@ -1,7 +1,7 @@
 import { BurgerConstructor, BurgerIngredients } from '@components';
 import { Preloader } from '@ui';
 import { useSelector } from '@store';
-import { getIngredientLoading } from '@slices/ingredientsSlice';
+import { getIngredientLoading } from '@slices/ingredients/ingredientsSlice';
 
 import type { FC } from 'react';
 

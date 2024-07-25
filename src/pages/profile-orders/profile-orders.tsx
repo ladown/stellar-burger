@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { ProfileOrdersUI } from '@ui-pages';
 import { Preloader } from '@ui';
 import { useSelector, useDispatch } from '@store';
-import { getOrdersState, getOrdersThunk } from '@slices/ordersSlice';
+import { getOrdersState, getOrdersThunk } from '@slices/orders/ordersSlice';
 
 import type { FC } from 'react';
 

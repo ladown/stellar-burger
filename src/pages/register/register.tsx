@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { RegisterUI } from '@ui-pages';
-import { getUserError, registerUserThunk } from '@slices/userSlice';
+import { getUserError, registerUserThunk } from '@slices/user/userSlice';
 import { useDispatch, useSelector } from '@store';
 import { useForm } from '@hooks/useForm';
 

@@ -7,8 +7,8 @@ import {
   getOrderState,
   orderBurgerThunk,
   removeOrderModalData
-} from '@slices/orderSlice';
-import { getUserData } from '@slices/userSlice';
+} from '@slices/order/orderSlice';
+import { getUserData } from '@slices/user/userSlice';
 
 import type { FC } from 'react';
 import type { TConstructorIngredient } from '@utils-types';

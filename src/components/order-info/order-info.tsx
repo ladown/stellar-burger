@@ -4,8 +4,11 @@ import { useParams } from 'react-router-dom';
 import { Preloader } from '@ui';
 import { OrderInfoUI } from '@ui';
 import { useSelector, useDispatch } from '@store';
-import { getIngredientData } from '@slices/ingredientsSlice';
-import { getOrdersState, getOrderByNumberThunk } from '@slices/ordersSlice';
+import { getIngredientData } from '@slices/ingredients/ingredientsSlice';
+import {
+  getOrdersState,
+  getOrderByNumberThunk
+} from '@slices/orders/ordersSlice';
 
 import type { FC } from 'react';
 import type { TIngredient } from '@utils-types';

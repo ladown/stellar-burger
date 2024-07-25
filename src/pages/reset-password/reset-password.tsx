@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { ResetPasswordUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
-import { getUserError, resetPasswordUserThunk } from '@slices/userSlice';
+import { getUserError, resetPasswordUserThunk } from '@slices/user/userSlice';
 import { useForm } from '@hooks/useForm';
 
 import type { FC, SyntheticEvent } from 'react';

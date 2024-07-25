@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { Preloader, IngredientDetailsUI } from '@ui';
 import { useSelector } from '@store';
-import { getIngredientState } from '@slices/ingredientsSlice';
+import { getIngredientState } from '@slices/ingredients/ingredientsSlice';
 
 import type { FC } from 'react';
 import type { TIngredient } from '@utils/types.js';

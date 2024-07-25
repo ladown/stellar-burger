@@ -5,11 +5,11 @@ import {
   useSelector as selectorHook
 } from 'react-redux';
 
-import ingredientReducer from '@slices/ingredientsSlice';
-import userReducer from '@slices/userSlice';
-import feedReducer from '@slices/feedSlice';
-import orderReduce from '@slices/orderSlice';
-import ordersReduce from '@slices/ordersSlice';
+import ingredientReducer from '@slices/ingredients/ingredientsSlice';
+import userReducer from '@slices/user/userSlice';
+import feedReducer from '@slices/feed/feedSlice';
+import orderReduce from '@slices/order/orderSlice';
+import ordersReduce from '@slices/orders/ordersSlice';
 
 import type { TypedUseSelectorHook } from 'react-redux';
 

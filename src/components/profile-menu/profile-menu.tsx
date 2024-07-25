@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { ProfileMenuUI } from '@ui';
 import { useDispatch } from '@store';
-import { logoutUserThunk } from '@slices/userSlice';
+import { logoutUserThunk } from '@slices/user/userSlice';
 
 import type { FC } from 'react';
 

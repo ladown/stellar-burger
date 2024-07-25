@@ -5,7 +5,7 @@ import { useDispatch } from '@store';
 import {
   removeIngredientFromBurgerConstructor,
   changeIngredientsBurgerConstructorOrder
-} from '@slices/orderSlice';
+} from '@slices/order/orderSlice';
 
 import type { FC } from 'react';
 import type { BurgerConstructorElementProps } from './type';

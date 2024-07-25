@@ -1,6 +1,6 @@
 import { AppHeaderUI } from '@ui';
 import { useSelector } from '@store';
-import { getUserData } from '@slices/userSlice';
+import { getUserData } from '@slices/user/userSlice';
 
 import type { FC } from 'react';
 
