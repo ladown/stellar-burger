@@ -13,7 +13,7 @@ import ordersReduce from '@slices/ordersSlice';
 
 import type { TypedUseSelectorHook } from 'react-redux';
 
-const rootReducer = () => ({
+export const rootReducer = () => ({
   ingredient: ingredientReducer,
   user: userReducer,
   feed: feedReducer,
