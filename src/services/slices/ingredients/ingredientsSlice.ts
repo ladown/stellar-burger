@@ -57,9 +57,9 @@ const ingredientSlice = createSlice({
     });
 
     builder.addCase(fetchIngredientsThunk.rejected, (state, action) => {
-      state.error = action.error.message;
       state.isLoading = false;
       state.isInit = true;
+      state.error = action.error.message;
     });
   }
 });
