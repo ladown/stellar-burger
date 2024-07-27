@@ -5,6 +5,9 @@ const config: Config = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  coverageProvider: 'v8',
   moduleNameMapper: {
     '^@pages(.*)$': '<rootDir>/src/pages$1',
     '^@components(.*)$': '<rootDir>/src/components$1',
