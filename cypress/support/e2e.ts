@@ -1,19 +1,15 @@
-import { setCookie } from '../../src/utils/cookie';
-
 beforeEach(() => {
-  cy.visit('http://localhost:4000');
+  cy.visit('/');
 
-  setCookie('accessToken', Cypress.env('ACCESS_TOKEN'));
-
-  cy.intercept('GET', `${Cypress.env('BURGER_API_URL')}/auth/user`, {
-    fixture: 'user.json'
-  });
-
-  cy.intercept('GET', `${Cypress.env('BURGER_API_URL')}/ingredients`, {
+  cy.intercept('GET', 'api/ingredients', {
     fixture: 'ingredients.json'
   });
 
-  cy.intercept('POST', `${Cypress.env('BURGER_API_URL')}/orders`, {
+  cy.intercept('GET', 'api/auth/user', {
+    fixture: 'user.json'
+  });
+
+  cy.intercept('POST', 'api/orders', {
     fixture: 'orders.json'
   });
 });
