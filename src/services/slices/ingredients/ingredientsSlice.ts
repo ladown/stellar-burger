@@ -6,12 +6,14 @@ import type { TIngredient } from '@utils-types';
 
 export type TIngredientSliceInitialState = {
   isLoading: boolean;
+  isInit: boolean;
   ingredients: TIngredient[];
   error: string | undefined;
 };
 
 export const ingredientSliceInitialState: TIngredientSliceInitialState = {
   isLoading: false,
+  isInit: false,
   ingredients: [],
   error: ''
 };
@@ -50,12 +52,14 @@ const ingredientSlice = createSlice({
 
     builder.addCase(fetchIngredientsThunk.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.isInit = true;
       state.ingredients = action.payload;
     });
 
     builder.addCase(fetchIngredientsThunk.rejected, (state, action) => {
       state.error = action.error.message;
       state.isLoading = false;
+      state.isInit = true;
     });
   }
 });
