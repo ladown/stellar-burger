@@ -10,14 +10,16 @@ export type TFeedSliceInitialState = Pick<
 > & {
   isLoading: boolean;
   isInit: boolean;
+  error: string | undefined;
 };
 
-const feedSliceInitialState: TFeedSliceInitialState = {
+export const feedSliceInitialState: TFeedSliceInitialState = {
   orders: [],
   total: 0,
   totalToday: 0,
   isLoading: false,
-  isInit: false
+  isInit: false,
+  error: ''
 };
 
 export const getFeedsThunk = createAsyncThunk('feed/getFeeds', getFeedsApi);
@@ -60,9 +62,10 @@ const feedSlice = createSlice({
       state.totalToday = action.payload.totalToday;
     });
 
-    builder.addCase(getFeedsThunk.rejected, (state) => {
+    builder.addCase(getFeedsThunk.rejected, (state, action) => {
       state.isLoading = false;
       state.isInit = true;
+      state.error = action.error.message;
     });
   }
 });

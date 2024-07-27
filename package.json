@@ -100,5 +100,6 @@
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
     "url-loader": "4.1.1"
-  }
+  },
+  "packageManager": "pnpm@9.6.0"
 }
