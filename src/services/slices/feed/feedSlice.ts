@@ -19,7 +19,7 @@ export const feedSliceInitialState: TFeedSliceInitialState = {
   totalToday: 0,
   isLoading: false,
   isInit: false,
-  error: ''
+  error: undefined
 };
 
 export const getFeedsThunk = createAsyncThunk('feed/getFeeds', getFeedsApi);
