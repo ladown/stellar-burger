@@ -10,7 +10,7 @@ export type TIngredientSliceInitialState = {
   error: string | undefined;
 };
 
-const ingredientSliceInitialState: TIngredientSliceInitialState = {
+export const ingredientSliceInitialState: TIngredientSliceInitialState = {
   isLoading: false,
   ingredients: [],
   error: ''
