@@ -3,7 +3,8 @@ import { expect, test, describe, jest } from '@jest/globals';
 import orderReducer, {
   addIngredientToBurgerConstructor,
   removeIngredientFromBurgerConstructor,
-  changeIngredientsBurgerConstructorOrder
+  changeIngredientsBurgerConstructorOrder,
+  orderSliceInitialState
 } from './orderSlice';
 
 jest.mock('uuid', () => ({
@@ -12,15 +13,6 @@ jest.mock('uuid', () => ({
 
 describe('Проверяет работу редьюсера order', () => {
   test('Проверяет добавление ингредиента в конструктор бургера', () => {
-    const initialState = {
-      burgerConstructor: {
-        bun: null,
-        ingredients: []
-      },
-      orderRequest: false,
-      orderModalData: null
-    };
-
     const ingredientToAdd = {
       _id: '643d69a5c3f7b9001cfa093c',
       id: 'f1ff8f22-be93-46fd-a50b-1a6b841f2c32',
@@ -36,14 +28,12 @@ describe('Проверяет работу редьюсера order', () => {
       image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
     };
 
-    const {
-      burgerConstructor: { bun }
-    } = orderReducer(
-      initialState,
+    const reducer = orderReducer(
+      orderSliceInitialState,
       addIngredientToBurgerConstructor(ingredientToAdd)
     );
 
-    expect(bun).toEqual(ingredientToAdd);
+    expect(reducer.burgerConstructor.bun).toEqual(ingredientToAdd);
   });
 
   test('Проверяет удаление ингредиента из конструктора бергера', () => {
@@ -70,14 +60,12 @@ describe('Проверяет работу редьюсера order', () => {
       orderModalData: null
     };
 
-    const {
-      burgerConstructor: { bun }
-    } = orderReducer(
+    const reducer = orderReducer(
       initialState,
       removeIngredientFromBurgerConstructor(initialState.burgerConstructor.bun)
     );
 
-    expect(bun).toEqual(null);
+    expect(reducer.burgerConstructor.bun).toEqual(null);
   });
 
   test('Проверяет изменение порядка ингредиентов в конструкторе бергера', () => {
@@ -125,9 +113,7 @@ describe('Проверяет работу редьюсера order', () => {
       orderModalData: null
     };
 
-    const {
-      burgerConstructor: { ingredients }
-    } = orderReducer(
+    const reducer = orderReducer(
       initialState,
       changeIngredientsBurgerConstructorOrder({
         ingredient: initialState.burgerConstructor.ingredients[0],
@@ -136,7 +122,7 @@ describe('Проверяет работу редьюсера order', () => {
       })
     );
 
-    expect(ingredients).toEqual(
+    expect(reducer.burgerConstructor.ingredients).toEqual(
       initialState.burgerConstructor.ingredients.reverse()
     );
   });
