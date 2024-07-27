@@ -52,6 +52,7 @@ describe('Проверка редьюсера слайса ingredients', () => {
     });
 
     expect(reducer.isLoading).toBe(false);
+    expect(reducer.ingredients).toEqual(payload);
   });
 
   test('Проверяет изменение состояние стора при вызове экшена с типом Rejected', async () => {
