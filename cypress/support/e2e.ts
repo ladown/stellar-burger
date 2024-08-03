@@ -1,6 +1,4 @@
 beforeEach(() => {
-  cy.visit('/');
-
   cy.intercept('GET', '/api/ingredients', {
     fixture: 'ingredients.json'
   });
@@ -12,4 +10,6 @@ beforeEach(() => {
   cy.intercept('POST', '/api/orders', {
     fixture: 'orders.json'
   });
+
+  cy.visit('/');
 });
