@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { ForgotPasswordUI } from '@ui-pages';
 import { useDispatch, useSelector } from '@store';
-import { forgotPasswordUserThunk, getUserError } from '@slices/userSlice';
+import { forgotPasswordUserThunk, getUserError } from '@slices/user/userSlice';
 import { useForm } from '@hooks/useForm';
 
 import type { FC, SyntheticEvent } from 'react';

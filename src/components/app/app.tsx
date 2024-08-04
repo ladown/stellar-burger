@@ -20,9 +20,9 @@ import {
   IngredientDetails
 } from '@components';
 import { useDispatch, useSelector } from '@store';
-import { fetchIngredientsThunk } from '@slices/ingredientsSlice';
-import { getUserThunk } from '@slices/userSlice';
-import { getOrdersState } from '@slices/ordersSlice';
+import { fetchIngredientsThunk } from '@slices/ingredients/ingredientsSlice';
+import { getUserThunk } from '@slices/user/userSlice';
+import { getOrdersState } from '@slices/orders/ordersSlice';
 
 import styles from './app.module.css';
 import '../../index.css';

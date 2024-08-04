@@ -2,7 +2,7 @@ import { forwardRef, useMemo } from 'react';
 
 import { IngredientsCategoryUI } from '@ui';
 import { useSelector } from '@store';
-import { getOrderState } from '@slices/orderSlice';
+import { getOrderState } from '@slices/order/orderSlice';
 
 import type { TIngredientsCategoryProps } from './type';
 import type { TIngredient } from '@utils-types';

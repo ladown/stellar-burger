@@ -67,7 +67,7 @@ export type TUserSliceInitialState = {
   error: string | undefined;
 };
 
-const userSliceInitialState: TUserSliceInitialState = {
+export const userSliceInitialState: TUserSliceInitialState = {
   isLoading: false,
   isInit: false,
   user: undefined,
@@ -136,6 +136,7 @@ const userSlice = createSlice({
 
     builder.addCase(getUserThunk.pending, (state) => {
       state.isLoading = true;
+      state.isInit = true;
       state.error = '';
     });
 
@@ -145,9 +146,10 @@ const userSlice = createSlice({
       state.isLoading = false;
     });
 
-    builder.addCase(getUserThunk.rejected, (state) => {
+    builder.addCase(getUserThunk.rejected, (state, action) => {
       state.isLoading = false;
       state.isInit = true;
+      state.error = action.error.message;
     });
 
     builder.addCase(updateUserDataThunk.pending, (state) => {
@@ -157,8 +159,12 @@ const userSlice = createSlice({
 
     builder.addCase(updateUserDataThunk.fulfilled, (state, action) => {
       state.user = action.payload.user;
-      state.isInit = true;
       state.isLoading = false;
+    });
+
+    builder.addCase(updateUserDataThunk.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
     });
 
     builder.addCase(logoutUserThunk.pending, (state) => {
@@ -168,8 +174,12 @@ const userSlice = createSlice({
 
     builder.addCase(logoutUserThunk.fulfilled, (state) => {
       state.user = undefined;
-      state.isInit = true;
       state.isLoading = false;
+    });
+
+    builder.addCase(logoutUserThunk.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
     });
 
     builder.addCase(forgotPasswordUserThunk.pending, (state) => {
@@ -195,12 +205,10 @@ const userSlice = createSlice({
 
     builder.addCase(resetPasswordUserThunk.fulfilled, (state) => {
       state.isLoading = false;
-      state.isInit = true;
     });
 
     builder.addCase(resetPasswordUserThunk.rejected, (state, action) => {
       state.isLoading = false;
-      state.isInit = true;
       state.error = action.error.message;
     });
   }

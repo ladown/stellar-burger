@@ -2,7 +2,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 import { Preloader } from '@ui';
 import { useSelector } from '@store';
-import { getUserState } from '@slices/userSlice';
+import { getUserState } from '@slices/user/userSlice';
 
 import type { ReactElement } from 'react';
 

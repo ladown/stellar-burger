@@ -9,13 +9,15 @@ export type TOrdersSliceInitialState = Pick<TFeedsResponse, 'orders'> & {
   isLoading: boolean;
   orderByNumber: TOrder | null;
   isInit: boolean;
+  error: string | undefined;
 };
 
-const ordersSliceInitialState: TOrdersSliceInitialState = {
+export const ordersSliceInitialState: TOrdersSliceInitialState = {
   orders: [],
   orderByNumber: null,
   isLoading: false,
-  isInit: false
+  isInit: false,
+  error: undefined
 };
 
 export const getOrdersThunk = createAsyncThunk(
@@ -60,9 +62,10 @@ const ordersSlice = createSlice({
       state.orders = action.payload;
     });
 
-    builder.addCase(getOrdersThunk.rejected, (state) => {
+    builder.addCase(getOrdersThunk.rejected, (state, action) => {
       state.isLoading = false;
       state.isInit = true;
+      state.error = action.error.message;
     });
 
     builder.addCase(getOrderByNumberThunk.pending, (state) => {
@@ -75,9 +78,10 @@ const ordersSlice = createSlice({
       state.orderByNumber = action.payload.orders[0];
     });
 
-    builder.addCase(getOrderByNumberThunk.rejected, (state) => {
+    builder.addCase(getOrderByNumberThunk.rejected, (state, action) => {
       state.isLoading = false;
       state.isInit = true;
+      state.error = action.error.message;
     });
   }
 });

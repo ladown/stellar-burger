@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import { ProfileUI } from '@ui-pages';
-import { getUserData } from '@slices/userSlice';
+import { getUserData } from '@slices/user/userSlice';
 import { useSelector, useDispatch } from '@store';
-import { updateUserDataThunk } from '@slices/userSlice';
+import { updateUserDataThunk } from '@slices/user/userSlice';
 
 import type { FC, SyntheticEvent } from 'react';
 

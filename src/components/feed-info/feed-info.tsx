@@ -1,6 +1,6 @@
 import { FeedInfoUI } from '@ui';
 import { useSelector } from '@store';
-import { getFeedState } from '@slices/feedSlice';
+import { getFeedState } from '@slices/feed/feedSlice';
 
 import type { FC } from 'react';
 import type { TOrder } from '@utils-types';

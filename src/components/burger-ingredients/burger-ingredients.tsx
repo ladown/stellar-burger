@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { BurgerIngredientsUI } from '@ui';
 import { useSelector } from '@store';
-import { getIngredientData } from '@slices/ingredientsSlice';
+import { getIngredientData } from '@slices/ingredients/ingredientsSlice';
 
 import type { FC } from 'react';
 import type { TTabMode } from '@utils-types';

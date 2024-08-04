@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { OrderCardUI } from '@ui';
 import { useSelector } from '@store';
-import { getIngredientData } from '@slices/ingredientsSlice';
+import { getIngredientData } from '@slices/ingredients/ingredientsSlice';
 
 import type { FC } from 'react';
 import type { TIngredient } from '@utils-types';

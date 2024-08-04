@@ -15,7 +15,7 @@ export type TOrderSliceInitialState = {
   orderModalData: TOrder | null;
 };
 
-const orderSliceInitialState: TOrderSliceInitialState = {
+export const orderSliceInitialState: TOrderSliceInitialState = {
   burgerConstructor: {
     bun: null,
     ingredients: []

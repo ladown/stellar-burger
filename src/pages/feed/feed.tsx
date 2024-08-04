@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Preloader } from '@ui';
 import { FeedUI } from '@ui-pages';
 import { useSelector, useDispatch } from '@store';
-import { getFeedState, getFeedsThunk } from '@slices/feedSlice';
+import { getFeedState, getFeedsThunk } from '@slices/feed/feedSlice';
 
 import type { FC } from 'react';
 
