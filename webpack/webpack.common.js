@@ -2,6 +2,7 @@ const HTMLWebpackPlugins = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -107,6 +108,15 @@ module.exports = {
       filename: production
         ? 'static/styles/[name].[contenthash].css'
         : 'static/styles/[name].css'
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../public/!(index.html)'),
+          context: path.resolve(__dirname, '../public/'),
+          noErrorOnMissing: true
+        }
+      ]
     }),
     new Dotenv()
   ]
