@@ -1,19 +1,42 @@
-# Проектная работа 11-го спринта
+# Stellar Burger — React + Redux SPA
 
-[Макет](<https://www.figma.com/file/vIywAvqfkOIRWGOkfOnReY/React-Fullstack_-Проектные-задачи-(3-месяца)_external_link?type=design&node-id=0-1&mode=design>)
+A burger constructor application with drag-and-drop ordering, user authentication, and real-time order tracking via WebSocket.
 
-[Чеклист](https://www.notion.so/praktikum/0527c10b723d4873aa75686bad54b32e?pvs=4)
+## Tech Stack
 
-## Этапы работы:
+![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black)
+![Redux](https://img.shields.io/badge/-Redux-764ABC?style=flat&logo=redux&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Jest](https://img.shields.io/badge/-Jest-C21325?style=flat&logo=jest&logoColor=white)
+![Cypress](https://img.shields.io/badge/-Cypress-17202C?style=flat&logo=cypress&logoColor=white)
 
-1. Разверните проект и ознакомьтесь с кодом. Все необходимые вам компоненты уже созданы и лежат в папке `src/components`
+## Features
 
-2. Настройте роутинг.
+- Drag-and-drop burger constructor with custom ingredients
+- JWT-based authentication: registration, login, password recovery, profile editing
+- Order history and real-time order feed via WebSocket
+- Protected routes and persistent sessions
+- Unit tests with Jest, E2E tests with Cypress
 
-3. Напишите функционал запросов данных с сервера, используя `Redux` и глобальный `store`. Сами "ручки" уже прописаны и лежат в `utils/burger-api.ts`
+## Getting Started
 
-4. Настройте авторизацию и создайте защищённые роуты.
+```bash
+npm install
+npm run start
+```
 
-## Важно:
+The app will run on `http://localhost:3000`.
 
-Для корректной работы запросов к серверу необходимо добавить переменную BURGER_API_URL в окружение. Сама ссылка находится в файле `.env.example`.
+## Testing
+
+```bash
+# Unit tests
+npm run test
+
+# E2E tests
+npm run cypress:open
+```
+
+## About
+
+This is a learning project from the **Web Development Master's program at NUST MISIS in partnership with Yandex Practicum**, covering the full React ecosystem: state management, routing, authentication, real-time data, and testing strategy.
